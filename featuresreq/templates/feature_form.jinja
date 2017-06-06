@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Feature Requests</title>
+    </head>
+    <body>
+        <div style="display: flex; justify-content: center">
+            <form style="flex: 0" data-bind="submit: addFeatureRequest">
+                <ul data-bind="foreach: errors">
+                    <li>
+                        <strong style="color: red" data-bind="text: text"></strong>
+                    </li>
+                </ul>
+                <p>Title: <input type="text" data-bind="value: title" required /></p>
+                <p>Description:<br /><textarea data-bind="value: description" required></textarea></p>
+                <p>Client: 
+                    <select name="client" required 
+                            data-bind="options: CLIENTS,
+                                       optionsCaption: 'Choose a client',
+                                       optionsText: 'name',
+                                       value: client"></select></p>
+                <p>Client Priority: <input type="number" data-bind="value: priority" min="1" required /></p>
+                <p>Target Date: <input type="date" data-bind="value: targetDate" required /></p>
+                <p>Product Area: <select required
+                                         data-bind="options: PRODUCT_AREAS,
+                                                    optionsCaption: 'Choose a product area',
+                                                    value: productArea"></select></p>
+                <button type="submit">Request Feature</button>
+            </form>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js" integrity="sha256-owX7sroiO/O1a7h3a4X29A1g3QgqdNvijRQ7V5TH45M=" crossorigin="anonymous"></script>
+        <script src="{{ url_for('static', filename='form.js') }}"></script>
+    </body>
+</html>

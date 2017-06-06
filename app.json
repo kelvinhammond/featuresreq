@@ -1,0 +1,8 @@
+{
+    "name": "FeaturesRequest",
+    "description": "Simple feature request app",
+    "image": "heroku/python",
+    "repository": "git@github.com:kelvinhammond/featuresreq.git",
+    "keywords": ["python", "flask"],
+    "addons": ["heroku-postgresql"]
+}
